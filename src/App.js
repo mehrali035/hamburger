@@ -1,24 +1,37 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import { CgMenu, CgClose } from 'react-icons/cg';
 
 function App() {
+  const [MenuIcon, SetMenuIcon] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+
+      <div className={MenuIcon ? " navbar active" : "navbar"}>
+
+        <ul className='navbar-list'>
+          <li>Home</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+
+        <div className="mobile-navbar-btn">
+          <CgMenu className="mobile-nav-icon menu-outline"
+
+
+            onClick={() => { SetMenuIcon(true) }}
+          />
+          <CgClose className="mobile-nav-icon close-outline"
+
+            onClick={() => { SetMenuIcon(false) }}
+          />
+        </div>
+
+
+
+
+      </div>
+    </>
   );
 }
 
